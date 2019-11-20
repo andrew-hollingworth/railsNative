@@ -1,5 +1,6 @@
 class ShoppersController < ApplicationController
-  before_action :set_shopper, only: [:show, :update, :destroy]
+  before_action :set_student, only: [:show, :update, :destroy]
+  before_action :authorize_request_shopper, except: [ :create, :destroy, :index, :login, :show]
 
   # GET /shoppers
   def index
@@ -18,7 +19,8 @@ class ShoppersController < ApplicationController
     @shopper = Shopper.new(shopper_params)
 
     if @shopper.save
-      render json: @shopper, status: :created, location: @shopper
+      token = encode(shopper_id: @shopper.id, username: @shopper.username)
+      render json: { shopper: @shopper, token: token }, status: :ok
     else
       render json: @shopper.errors, status: :unprocessable_entity
     end
@@ -33,6 +35,21 @@ class ShoppersController < ApplicationController
     end
   end
 
+  def login
+    @shopper = Shopper.find_by_username(shopper_params[:username])
+    render json: { error: @shopper}
+    if @shopper.authenticate(shopper_params[:password]) #authenticate method provided by Bcrypt and 'has_secure_password'
+      token = encode(shopper_id: @shopper.id, username: @shopper.username)
+      render json: { shopper: @shopper, token: token }, status: :ok
+    else
+      render json: { error: 'unauthorized' }, status: :unauthorized
+    end
+  end
+
+  def verify
+    render json: @current_user, status: :ok
+  end
+  
   # DELETE /shoppers/1
   def destroy
     @shopper.destroy
