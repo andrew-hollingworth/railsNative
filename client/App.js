@@ -29,6 +29,7 @@ const App = () => {
   const [turn, setTurn] = React.useState({
     value: false
   })
+  console.log('hello from console')
   return (
     <>
       <StatusBar barStyle="dark-content" />
