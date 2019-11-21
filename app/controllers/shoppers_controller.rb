@@ -37,7 +37,6 @@ class ShoppersController < ApplicationController
 
   def login
     @shopper = Shopper.find_by_username(shopper_params[:username])
-    render json: { error: @shopper}
     if @shopper.authenticate(shopper_params[:password]) #authenticate method provided by Bcrypt and 'has_secure_password'
       token = encode(shopper_id: @shopper.id, username: @shopper.username)
       render json: { shopper: @shopper, token: token }, status: :ok
