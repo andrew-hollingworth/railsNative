@@ -6,6 +6,7 @@ import ProfileScreen from './src/Profile/ProfileScreen'
 import WishlistScreen from './src/Wishlist/WishlistScreen'
 import ItemScreen from './src/Item/ItemScreen'
 import CartScreen from './src/Cart/CartScreen'
+import { oneItem } from './services/api-helper';
 
 const MainNavigator = createBottomTabNavigator({
   Home: { screen: HomeScreen },
@@ -13,6 +14,7 @@ const MainNavigator = createBottomTabNavigator({
   Wishlist: { screen: WishlistScreen },
   Items: { screen: ItemScreen },
   Cart: { screen: CartScreen },
+
 
 });
 
