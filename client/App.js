@@ -1,98 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs'
+import 'react-native-gesture-handler';
+import HomeScreen from './src/Home/home';
+import ProfileScreen from './src/Profile/ProfileScreen'
+import WishlistScreen from './src/Wishlist/WishlistScreen'
+import ItemScreen from './src/Item/ItemScreen'
+import CartScreen from './src/Cart/CartScreen'
 
-import React from 'react';
-import {
-  TouchableOpacity,
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+const MainNavigator = createBottomTabNavigator({
+  Home: { screen: HomeScreen },
+  Profile: { screen: ProfileScreen },
+  Wishlist: { screen: WishlistScreen },
+  Items: { screen: ItemScreen },
+  Cart: { screen: CartScreen },
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import Form from './src/Form/Form';
-const App = () => {
-  const [turn, setTurn] = React.useState({
-    value: false
-  })
-  console.log('hello from console')
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-            <View>
-            <TouchableOpacity onPress={() => setTurn({value: true})}>
-              <Text >
-              Button
-              </Text>
-              </TouchableOpacity> 
-          {turn.value === false ? 
-            <Text>Hello Native</Text>
-           : <Form /> }
-           <Text>
-           {turn.value === true ? 'darrin' : null}
-           </Text>
-            </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
 });
+
+const App = createAppContainer(MainNavigator);
 
 export default App;
