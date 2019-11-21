@@ -13,6 +13,7 @@ const MainNavigator = createBottomTabNavigator({
   Wishlist: { screen: WishlistScreen },
   Items: { screen: ItemScreen },
   Cart: { screen: CartScreen },
+
 });
 
 const App = createAppContainer(MainNavigator);
