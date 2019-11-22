@@ -54,7 +54,8 @@ const ItemScreen = () => {
         <Text style={styles.itemTitle}>{ele.title}</Text>
         <Text style={styles.itemDesc}>{ele.description}</Text>
         <Text style={styles.itemPrice}>${ele.price}0</Text>
-        <Button style={styles.addToCart} title='Add to Cart'></Button>
+        <Button title='Add to Cart'></Button>
+        <Button color='grey' title='Add to Wishlist'></Button>
       </View>
     )
   });
