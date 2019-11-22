@@ -3,7 +3,7 @@ class WishlistsController < ApplicationController
 
   # GET /wishlists
   def index
-    @wishlists = Wishlist.all
+    @wishlists = Wishlist..where(shopper_id: params[:shopper_id])
 
     render json: @wishlists
   end

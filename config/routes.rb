@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
   resources :wishlists
+
   resources :items
+
   resources :shoppers
+  
+  resources :shoppers do
+    resources :carts
+  end
+
   resources :carts
+
   resources :shoppers do 
     resources :items
   end
