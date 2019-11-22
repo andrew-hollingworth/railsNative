@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderColor: 'black',
     borderWidth: 1,
+    marginBottom: 17,
     width: '90%',
   },
   itemContainer: {
