@@ -1,11 +1,11 @@
 import React from 'react'
-import { SafeView, View, Text } from 'react-native'
+import { SafeAreaView, View, Text } from 'react-native'
 
 const CartScreen = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Cart goes here!</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 
