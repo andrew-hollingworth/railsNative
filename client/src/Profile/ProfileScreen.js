@@ -1,11 +1,12 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 
-const ProfileScreen = () => {
+const ProfileScreen = (props) => {
+  console.log(props)
   return (
-    <View>
+    <SafeAreaView>
       <Text>Profile goes here!</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 
