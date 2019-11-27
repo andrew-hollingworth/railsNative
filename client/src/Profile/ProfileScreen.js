@@ -1,7 +1,10 @@
 import React from 'react'
-import { SafeAreaView, View, Text } from 'react-native'
 
-const ProfileScreen = () => {
+import { View, Text, SafeAreaView } from 'react-native'
+
+
+const ProfileScreen = (props) => {
+  console.log(props)
   return (
     <SafeAreaView>
       <Text>Profile goes here!</Text>

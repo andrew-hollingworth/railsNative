@@ -1,16 +1,19 @@
 class CartsController < ApplicationController
     before_action :set_cart, only: [:show, :update, :destroy]
+    before_action :get_models, except: [:show, :index,:destroy]
 
     # GET /carts
     def index
-      @carts = Cart.all
-  
+      @carts = Cart.where(shopper_id: params[:shopper_id])
+
       render json: @carts
     end
   
     # GET /carts/1
     def show
-      render json: @cart
+      @carts = Cart.all
+
+      render json: @carts
     end
   
     # POST /carts

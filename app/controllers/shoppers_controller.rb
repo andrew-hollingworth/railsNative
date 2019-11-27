@@ -1,5 +1,5 @@
 class ShoppersController < ApplicationController
-  before_action :set_student, only: [:show, :update, :destroy]
+  before_action :set_shopper, only: [:show, :update, :destroy]
   before_action :authorize_request_shopper, except: [ :create, :destroy, :index, :login, :show]
 
   # GET /shoppers
