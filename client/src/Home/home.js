@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
+
 import { Button, SafeAreaView, Text, View } from 'react-native'
+
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 // import SafeAreaView from 'react-native-safe-area-view';
 
@@ -14,6 +16,7 @@ const HomeScreen = (props) => {
 
   console.log('home',props)
   return (
+
     <>
       <SafeAreaView>
       <Text>
@@ -23,6 +26,7 @@ const HomeScreen = (props) => {
 
 
     </>
+
   );
 }
 

@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { View, Text, SafeAreaView } from 'react-native'
+
 
 const ProfileScreen = (props) => {
   console.log(props)
